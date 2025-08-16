@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  background: linear-gradient(to top, #a0d8ef, #e0f7fa);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container that moves across screen */
+.butterfly-container {
+  animation: fly 8s linear infinite;
+  position: relative;
+}
+
+/* Butterfly structure */
+.butterfly {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Wings */
+.wing {
+  width: 50px;
+  height: 60px;
+  background: radial-gradient(circle at 30% 30%, #ff69b4, #ff1493);
+  border-radius: 50% 50% 50% 50%;
+  animation: flap 0.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.wing.left {
+  transform-origin: right center;
+}
+
+.wing.right {
+  transform-origin: left center;
+}
+
+/* Body */
+.body {
+  width: 15px;
+  height: 70px;
+  background: #333;
+  border-radius: 50px;
+  z-index: 1;
+}
+
+/* Wing flapping animation */
+@keyframes flap {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.3); }
+}
+
+/* Flying animation */
+@keyframes fly {
+  0% {
+    transform: translateX(-150px) translateY(0px);
+  }
+  50% {
+    transform: translateX(50vw) translateY(-50px);
+  }
+  100% {
+    transform: translateX(100vw) translateY(0px);
+  }
+}
